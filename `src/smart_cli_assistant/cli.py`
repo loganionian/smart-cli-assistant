@@ -1,0 +1,14 @@
+import argparse
+from .main import CommandAssistant
+
+def main():
+    parser = argparse.ArgumentParser(description='AI-powered CLI assistant.')
+    parser.add_argument('context', type=str, help='Current terminal context or command history')
+    args = parser.parse_args()
+
+    assistant = CommandAssistant()
+    suggestion = assistant.suggest_command(args.context)
+    print(f"Suggested command: {suggestion}")
+
+if __name__ == '__main__':
+    main()
