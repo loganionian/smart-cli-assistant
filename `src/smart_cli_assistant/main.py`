@@ -1,0 +1,12 @@
+import openai
+
+class CommandAssistant:
+    def __init__(self):
+        openai.api_key = "your_openai_api_key"
+
+    def suggest_command(self, context):
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[{"role": "user", "content": f"Suggest a command based on this context: {context}"}]
+        )
+        return response.choices[0].message['content']
