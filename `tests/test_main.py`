@@ -1,0 +1,11 @@
+import unittest
+from smart_cli_assistant.main import CommandAssistant
+
+class TestCommandAssistant(unittest.TestCase):
+    def test_suggest_command(self):
+        assistant = CommandAssistant()
+        suggestion = assistant.suggest_command("print a message")
+        self.assertIn("print", suggestion)
+
+if __name__ == '__main__':
+    unittest.main()
